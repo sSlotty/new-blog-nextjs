@@ -13,7 +13,7 @@ const Author = ({ author }) => (
         height="100px"
         width="100px"
         className="align-middle rounded-full"
-        src={author.photo.url}
+        src={author.photo ? author.photo.url : 'https://icons-for-free.com/download-icon-business+costume+male+man+office+user+icon-1320196264882354682_512.png'}
       />
     </div>
     <h3 className="text-white mt-4 mb-4 text-xl font-bold">{author.name}</h3>

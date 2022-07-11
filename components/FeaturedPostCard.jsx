@@ -17,7 +17,7 @@ const FeaturedPostCard = ({ post }) => (
           height="30px"
           width="30px"
           className="align-middle drop-shadow-lg rounded-full"
-          src={post.author.photo.url}
+          src={post.author.photo ? post.author.photo.url : 'https://icons-for-free.com/download-icon-business+costume+male+man+office+user+icon-1320196264882354682_512.png'}
         />
         <p className="inline align-middle text-white text-shadow ml-2 font-medium">{post.author.name}</p>
       </div>

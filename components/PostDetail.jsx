@@ -18,6 +18,9 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = (<u key={index}>{text}</u>);
       }
+      if (obj.code) {
+        modifiedText = (<code className="max-w-4xl p-4 text-cyan-300 bg-slate-700 rounded-lg shadow-md code" key={index}>{text}</code>);
+      }
     }
 
     switch (type) {
@@ -35,7 +38,28 @@ const PostDetail = ({ post }) => {
             height={obj.height}
             width={obj.width}
             src={obj.src}
+            className="rounded-lg shadow-sm"
           />
+        );
+      case 'block-quote':
+        return (
+          <div className="max-w-4xl p-4 text-gray-800 bg-sky-700 rounded-lg shadow-md" key={index}>
+            <div className="mb-2">
+              <div className="h-3 text-3xl text-left text-gray-600">“</div>
+              <p className="px-4 text-sm text-center text-gray-600">
+                {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
+              </p>
+              <div className="h-3 text-3xl text-right text-gray-600">”</div>
+            </div>
+          </div>
+        );
+      case 'code-block':
+        return (
+          <pre key={index}>
+            <code className="code max-w-4xl p-4 rounded-lg shadow-md mb-2 text-cyan-300 bg-slate-700">
+              {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
+            </code>
+          </pre>
         );
       default:
         return modifiedText;
@@ -50,13 +74,13 @@ const PostDetail = ({ post }) => {
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
-            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
+            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
               <img
                 alt={post.author.name}
                 height="30px"
                 width="30px"
                 className="align-middle rounded-full"
-                src={post.author.photo.url}
+                src={post.author.photo ? post.author.photo.url : 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>

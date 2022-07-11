@@ -2,21 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@400;500&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  &:before{
+  font-family: 'Athiti', sans-serif;  &:before{
     content:'';
     content: "";
     width: 100%;
     height: 100vh;
-    //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
-    // background: #D3D3D3;
-    background-image: url("../public/bg.jpg");
+    background: linear-gradient(to right bottom, #112B3C, #205375);
+    // background: #3A5BA0;
+    // background-image: url("https://images.unsplash.com/photo-1573166717911-d3625658b6f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
     position: fixed;
     left: 0;
     top: 0;
@@ -26,6 +25,8 @@ body {
     background-size: cover;
   }
 }
+
+
 
 .text-shadow{
   text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
@@ -61,4 +62,52 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+	.component {
+		font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	}
+
+	blockquote {
+		background:
+			linear-gradient(to right, #039be5 6px, transparent 4px) 0 100%,
+			linear-gradient(to left, #039be5 6px, transparent 4px) 100% 0,
+			linear-gradient(to bottom, #039be5 6px, transparent 4px) 100% 0,
+			linear-gradient(to top, #039be5 6px, transparent 4px) 0 100%;
+		background-repeat: no-repeat;
+		background-size: 20px 20px;
+	}
+
+	/* -- create the quotation marks -- */
+	blockquote:before,
+	blockquote:after {
+		font-family: FontAwesome;
+		position: absolute;
+		color: #039be5;
+		font-size: 34px;
+	}
+
+	blockquote:before {
+		content: "\f10d";
+		top: -12px;
+		margin-right: -20px;
+		right: 100%;
+	}
+
+	blockquote:after {
+		content: "\f10e";
+		margin-left: -20px;
+		left: 100%;
+		top: auto;
+		bottom: -20px;
+	}
+  pre code {
+    display: block;
+    background: none;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    max-width: 100%;
+    min-width: 100px;
+    padding: 0;
 }
