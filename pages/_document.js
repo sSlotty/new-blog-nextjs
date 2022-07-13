@@ -3,6 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
+
     return { ...initialProps };
   }
 
@@ -10,6 +11,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* <title>{children.type.name.toLowerCase()}</title> */}
+
           {/* <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> */}
         </Head>
         <body>
