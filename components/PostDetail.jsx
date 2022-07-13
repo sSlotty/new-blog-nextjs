@@ -51,7 +51,7 @@ const PostDetail = ({ post }) => {
               <p className="px-4 text-md text-center text-lime-300">
                 {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
               </p>
-              <div className="h-3 text-5xl text-right text-lime-300">”</div>
+              <div className="h-3 text-xl text-right text-lime-300">”</div>
             </div>
           </div>
         );
