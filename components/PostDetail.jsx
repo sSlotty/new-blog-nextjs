@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
@@ -7,7 +8,6 @@ import { NextSeo } from 'next-seo';
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
-
     if (obj) {
       if (obj.bold) {
         modifiedText = (<b key={index}>{text}</b>);
@@ -51,7 +51,7 @@ const PostDetail = ({ post }) => {
               <p className="px-4 text-md text-center text-lime-300">
                 {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
               </p>
-              <div className="h-3 text-xl text-right text-lime-300">”</div>
+              <div className="h-3 text-5xl text-right text-lime-300">”</div>
             </div>
           </div>
         );
@@ -62,6 +62,19 @@ const PostDetail = ({ post }) => {
               {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
             </code>
           </pre>
+        );
+      case 'iframe':
+        console.log(obj.url);
+        return (
+          <div className="rounded-lg bg-black" key={index}>
+            <iframe
+              className="w-full aspect-video mb-2"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              src={obj.url}
+            />
+          </div>
         );
       default:
         return modifiedText;
@@ -114,7 +127,7 @@ const PostDetail = ({ post }) => {
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
             <div className="font-medium text-gray-700">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>

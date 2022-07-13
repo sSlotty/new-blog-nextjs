@@ -94,7 +94,7 @@ const CommentForm = ({ slug }) => {
       {errors && <p className="text-xs text-red-500"> All fields are required</p>}
       <div className="mt-8">
         <button
-          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-300 text-lg rounded-full text-white px-8 py-3 cursor-pointer"
+          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-blue-300 text-lg rounded-full text-white px-8 py-3 cursor-pointer"
           type="button"
           onClick={handleCommentSubmit}
         >
