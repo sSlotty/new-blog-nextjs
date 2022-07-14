@@ -83,7 +83,6 @@ const PostDetail = ({ post }) => {
 
   const _title = `${post.title} | ThanathipDev`;
 
-  console.log(post);
   return (
     <>
       <NextSeo
@@ -132,7 +131,7 @@ const PostDetail = ({ post }) => {
                 width="30px"
                 unoptimized
                 className="align-middle rounded-full"
-                src={post.photo ? post.photo.url : 'https://icons-for-free.com/download-icon-business+costume+male+man+office+user+icon-1320196264882354682_512.png'}
+                src={post.author.photo ? post.author.photo.url : 'https://icons-for-free.com/download-icon-business+costume+male+man+office+user+icon-1320196264882354682_512.png'}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
