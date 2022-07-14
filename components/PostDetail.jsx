@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-
+import Image from 'next/image';
 import moment from 'moment';
 import { NextSeo } from 'next-seo';
+import { grpahCMSImageLoader } from '../util';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -81,6 +82,8 @@ const PostDetail = ({ post }) => {
   };
 
   const _title = `${post.title} | ThanathipDev`;
+
+  console.log(post);
   return (
     <>
       <NextSeo
@@ -110,18 +113,26 @@ const PostDetail = ({ post }) => {
         }}
       />
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-        <div className="relative overflow-hidden shadow-md mb-6">
-          <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
-        </div>
+        <Image
+          loader={grpahCMSImageLoader}
+          alt={post.title}
+          width={1280}
+          height={720}
+          unoptimized
+          className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg  mb-6 overflow-hidden"
+          src={post.featuredImage.url}
+        />
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
-            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <img
+            <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8 items-center">
+              <Image
+                loader={grpahCMSImageLoader}
                 alt={post.author.name}
                 height="30px"
                 width="30px"
+                unoptimized
                 className="align-middle rounded-full"
-                src={post.author.photo ? post.author.photo.url : 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}
+                src={post.photo ? post.photo.url : 'https://icons-for-free.com/download-icon-business+costume+male+man+office+user+icon-1320196264882354682_512.png'}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
