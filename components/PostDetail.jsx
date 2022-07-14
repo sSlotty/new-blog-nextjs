@@ -64,7 +64,6 @@ const PostDetail = ({ post }) => {
           </pre>
         );
       case 'iframe':
-        console.log(obj.url);
         return (
           <div className="rounded-lg bg-black" key={index}>
             <iframe
@@ -122,7 +121,7 @@ const PostDetail = ({ post }) => {
                 height="30px"
                 width="30px"
                 className="align-middle rounded-full"
-                src={post.author.picture ? post.author.picture.url : 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}
+                src={post.author.photo ? post.author.photo.url : 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
