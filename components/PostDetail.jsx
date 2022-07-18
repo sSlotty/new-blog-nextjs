@@ -24,6 +24,9 @@ const PostDetail = ({ post }) => {
       if (obj.code) {
         modifiedText = (<code className="max-w-4xl p-4 text-cyan-300 bg-slate-700 rounded-lg shadow-md code" key={index}>{text}</code>);
       }
+      if (obj.href) {
+        modifiedText = (<a href={obj.href} className="text-blue-900 underline" key={index} target="_blank" rel="noreferrer">{obj.href}</a>);
+      }
     }
 
     switch (type) {
@@ -82,7 +85,6 @@ const PostDetail = ({ post }) => {
   };
 
   const _title = `${post.title} | ThanathipDev`;
-
   return (
     <>
       <NextSeo
